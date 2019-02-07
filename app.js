@@ -17,9 +17,9 @@ app.use(function(req, res, next) {
 app.get("/", function(req,resp){
     var time = new Date();
     
-    resp.end("The current time :" + time);
+    resp.end("The current time :" + time.toLocaleTimeString('en-US', {timezone:America/Vancouver}));
      
-})
+});
 
 app.listen(port, function(err){
     if(err){
@@ -27,5 +27,5 @@ app.listen(port, function(err){
     }
     
     console.log("Port is open at " + port);
-})
+});
 
