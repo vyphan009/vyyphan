@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+	<html>
+		<head>
+			<script src="app.js"></script>
+			<title>COMP 4711</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		</head>
+		<body>
+			<h1>Test NodeJs</h1>
+            Time: <h2 id="curTime"></h2>
+			<img src="images/ava.jpg" alt="avatar" width="300" height="300">
+			<p>I am Vy. I'm from Vietnam and I have been in Vancouver about 3 years. It's rain a lot in Vancouver but thankfully the summer is wonderful.
+			I'm really enjoy cycling and going out as many as I can and having an ice-cream later on. I'm currently attennd in BCIT for Computer Science and this's my final term. Hopefully, I will pass all courses.</p>
+			<p>Course I am taking:</p>
+			<ul>
+				<li><a href="./COMP4711/COMP4711.html">COMP4711</a></li>
+				<li>COMP4932</li>
+				<li>BLAW3600</li>
+				<li>COMP4735</li>
+				<li>COMP4560</li>
+				<li>COMP4900</li>
+				<li>COMP4995</li>
+			
+			</ul>
+		</body>
+		<script>
+            document.addEventListener("DOMContentLoaded", function(){
+                
+                
+                fetch("https://vyyphan1.herokuapp.com").then(function(resp){
+                  
+                   return resp.text()
+                
+                    
+                }).then(function(text){
+                    
+                    console.log(text);
+                    document.getElementById("curTime").innerHTML = text;
+                })
+                
+                
+            })
+            
+            
+            
+        </script>
+	</html>

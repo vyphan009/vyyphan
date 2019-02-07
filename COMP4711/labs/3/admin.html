@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+
+        <body>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type = "text/javascript" src="script.js"></script>                
+            <div id="wrapper">
+                <form id="form">
+                    <h4>Question Text*<br><br>
+                    <input type="text" id="question">
+                    
+                    <h4>Answers* <br><br>
+                    <div id="minidiv">
+                    <div>
+                    <input type="radio" id="a" name="selection"><input type="text" id="c0"><br>
+                    </div><br>
+                    <div>
+                    <input type="radio" id="b" name="selection"><input type="text" id="c1"><br>
+                    </div><br>
+                    <div>
+                    <input type="radio" id="c" name="selection"><input type="text" id="c2"><br>
+                    </div><br>
+                    <div>
+                    <input type="radio" id="d" name="selection"><input type="text" id="c3"><br>
+                    </div><br>
+                    </div>
+                    <input type="button" class ="editButtons" value="Add" id="add" onclick="addData();">
+                    <input type="button" class ="editButtons" value="Edit" id="edit" onclick="addData();">
+                    <input type="button" class ="editButtons" value="Save" id="save" onclick="saveData();">
+                    <input type="button" class ="editButtons" value="Delete All" id="delete" onclick="deleteAll();">
+
+
+                </form>
+            </div>
+            
+            <div class="modal">
+                <p class="message">Look at this fancy pop-up</p>
+                <div class="options">
+                <button class="btn">Yes</button>
+                <button class="btn">No</button>
+            </div>
+            
+            
+            </div>
+            <br><button class="buttons"  onclick="goBack();" id="back">Go Back </button>
+            <br><button class="buttons" onclick="goNext();" id="next">Next</button>
+            
+        </body>
+    </html>
