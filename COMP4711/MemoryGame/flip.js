@@ -301,17 +301,6 @@ function restart(){
 		score = 0;
 }
 
-//go to leader board that show name + score
-function submit(){
-	submitName = true;
-	name=document.getElementById("name").value;
-	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/leaderboard.html";
-	submitName =false;
-}
-
-
-
-
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
@@ -320,27 +309,41 @@ var con = mysql.createConnection({
  user: "root",
  password: "",
 });
-
 con.connect(function(err){
-   if(err) throw err;
-   console.log("Connected");
-   con.query ("CREATE DATABASE IF NOT EXISTS leaderboard", function(err, result){
-       if(err) throw err;
-       console.log("Database created");
-   });
-   
-   con.query("use leaderboard", function(err, result){
-       if(err) throw err;
-       console.log("Database used");
-   });
-   
-   con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
-     if(err) throw err;
-       console.log("Table questions created");
-   });
-   if(submitName == true){
-       con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
-        if(err) throw err;
-          console.log("Data inserted");
-       })};
-});
+	if(err) throw err;
+	console.log("Connected");
+	con.query ("CREATE DATABASE IF NOT EXISTS leaderboard", function(err, result){
+		if(err) throw err;
+		console.log("Database created");
+	});
+	
+	con.query("use leaderboard", function(err, result){
+		if(err) throw err;
+		console.log("Database used");
+	});
+	
+	con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
+	  if(err) throw err;
+		console.log("Table questions created");
+	});
+		
+ });
+//go to leader board that show name + score
+function submit(){
+	submitName = true;
+	name=document.getElementById("name").value;
+	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/leaderboard.html";
+	con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
+		if(err) throw err;
+		  console.log("Data inserted");
+	   });
+	
+
+}
+
+
+
+
+
+
+
