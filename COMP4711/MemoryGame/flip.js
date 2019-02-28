@@ -18,6 +18,7 @@ var level = 1;
 var angle = 0;
 var times = false;
 var rotateTimes = false;
+var submitName = false;
 
 
 function generateCell(index) 
@@ -79,15 +80,15 @@ function shuffle(array) {
     }
 	
 }
-module.exports = {
-	skip: function(){
+
+	function skip(){
 	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
 	document.write("<link rel='stylesheet' type='text/css' href='flip.css'>");
 	}
-}
 
-module.exports = {
-	dealCard: function(index) {
+
+
+	function dealCard(index) {
 		//score + level
 		document.write("<label id=\"score\">" + "Score: " + score + "</label>");
 		document.write("<br><label id=\"level\">" + "Level: " + level + "</label>");
@@ -97,7 +98,7 @@ module.exports = {
 		
 		document.write("<br><br><button id='terminate' onClick=\"terminate()\">TERMINATE</button>");
 	}
-}
+
 
 function init(index){
 	shuffle(generateCell(index));
@@ -302,44 +303,44 @@ function restart(){
 
 //go to leader board that show name + score
 function submit(){
+	submitName = true;
 	name=document.getElementById("name").value;
 	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/leaderboard.html";
+	submitName =false;
 }
 
 
 
-//
-//var mysql = require('mysql');
-//
-//var con = mysql.createConnection({
-//  host: "localhost",
-//  port: "8080",
-//  user: "root",
-//  password: "",
-//});
-//
-//con.connect(function(err){
-//    if(err) throw err;
-//    console.log("Connected");
-//    con.query ("CREATE DATABASE IF NOT EXISTS leaderboard", function(err, result){
-//        if(err) throw err;
-//        console.log("Database created");
-//    });
-//    
-//    con.query("use leaderboard", function(err, result){
-//        if(err) throw err;
-//        console.log("Database used");
-//    });
-//    
-//    con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
-//      if(err) throw err;
-//        console.log("Table questions created");
-//    });
-//    
-//    
-//   
-//        //con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
-//        //  if(err) throw err;
-//        //    console.log("Data inserted");
-//        //});
-//});
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+ host: "localhost",
+ port: "8080",
+ user: "root",
+ password: "",
+});
+
+con.connect(function(err){
+   if(err) throw err;
+   console.log("Connected");
+   con.query ("CREATE DATABASE IF NOT EXISTS leaderboard", function(err, result){
+       if(err) throw err;
+       console.log("Database created");
+   });
+   
+   con.query("use leaderboard", function(err, result){
+       if(err) throw err;
+       console.log("Database used");
+   });
+   
+   con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
+     if(err) throw err;
+       console.log("Table questions created");
+   });
+   if(submitName == true){
+       con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
+        if(err) throw err;
+          console.log("Data inserted");
+       })};
+});
