@@ -15,39 +15,49 @@ var tmpScore = 0;
 var size = [9, 16, 25, 36, 49];
 var m;
 var level = 1;
+var angle = 0;
 var times = false;
+var rotateTimes = false;
+var nextRound = false;
+function skip(){
+	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+	document.write("<link rel='stylesheet' type='text/css' href='flip.css'>");
+	nextRound = true;
+}
+
 
 function generateCell(index) 
 {
+	
 	max = size[index];
 	for(var i = 1; i <=max; i++)
 	{
 		
-		if(i<=max/3){
+		if(i<=max/3 && Math.sqrt(max) == 3){
 			correctCells = {type: 'correct', img: 'green.png'};
 			cells.push(correctCells);
 			correctNum = 3;
 			m = 3;
 				
-		}else if(i<=max/4){
+		}else if(i<=max/4 && Math.sqrt(max) == 4){
 				correctCells = {type: 'correct', img: 'green.png'};
 				cells.push(correctCells);
 				correctNum = 4;
 				m= 4;
 				
-		} else if(i<=max/5){
+		} else if(i<=max/5 && Math.sqrt(max) == 5){
 				correctCells = {type: 'correct', img: 'green.png'};
 				cells.push(correctCells);
 				correctNum = 5;
 				m= 5;
 				
-		}else if(i<=max/6){
+		}else if(i<=max/6 && Math.sqrt(max) == 6){
 				correctCells = {type: 'correct', img: 'green.png'};
 				cells.push(correctCells);
 				correctNum = 6;
 				m=6;
 				
-		}else if(i<=max/7){
+		}else if(i<=max/7 && Math.sqrt(max) == 7){
 				correctCells = {type: 'correct', img: 'green.png'};
 				cells.push(correctCells);
 				correctNum = 7;
@@ -80,19 +90,19 @@ function dealCard(index) {
 	//score + level
 	document.write("<label id=\"score\">" + "Score: " + score + "</label>");
 	document.write("<br><label id=\"level\">" + "Level: " + level + "</label>");
+	
+
 	this.index = index;
-	init(index);
-    
-	//document.write("<br><button id='restart'  onClick=\"window.location.reload(); \">RESTART</button>");
-	document.write("<br><br><button id='terminate' onClick=\"terminate()\">Terminate</button>");
-	document.write("<br><br><button id='terminate' onClick=\"addCell()\">ADD</button>");
-
-
+	init(index);	
+	
+	document.write("<br><br><button id='terminate' onClick=\"terminate()\">TERMINATE</button>");
 }
+
+
 function init(index){
 	shuffle(generateCell(index));
     document.write("<p></p>");
-    document.write("<table class=\"list\">");
+    document.write("<table id='table' class=\"list\">");
     document.write("<tr>");
 	console.log(max);
     for (var i = 0; i < max; i++) {
@@ -137,9 +147,6 @@ function init(index){
 	
 }
 
-function addCell(){
-	var tmpTable = document.getElementsByClassName('list');
-}
 
 
 function showCells()
@@ -166,22 +173,24 @@ function showCells()
 	
 	setTimeout(
 	function() 
-  	{
+  	{		
+		
 		$("table").toggleClass('rotated');
+
 	}, 3000);
 	
 	setTimeout(
 		function(){
 			correctNum = m;
-			//console.log("tmpScore: " + tmpScore);
-			score = tmpScore;
-			//console.log("after 4ms: " + correctNum);
+			console.log("tmp: " + tmpScore + ", score: " + score);
 
-			//console.log("score: " + score);
+			score = tmpScore;
+			console.log("reset score: " + score);
 			times = true;
 		}, 3000
 	);
 }
+
 
 function cellClicked(id) {
     var inputID = "#" + id;
@@ -190,18 +199,45 @@ function cellClicked(id) {
 	if(cells[id].type == 'correct'){
 		correctNum--;
 		score++;
-		//console.log("counter: " + correctNum);
 		if(correctNum == 0 && times == true){
-			//index++;
-			level++;
-			document.getElementById("level").innerHTML = "Level: " + level;
-			//alert();
-			index++;
-			//var removeTab = document.getElementsByClassName("list").parentElement.removeChild(removeTab);
-			console.log(index);
-			dealCard(index);
-			
-			
+			tmpScore = score;
+			setTimeout(
+				function(){
+						
+					level++;
+					tmpScore+= 10;
+					index++;
+					//console.log(index);
+					frontCell = 'white.png';
+					correctCell = "green.png";
+					wrongCell = "red.png";
+					cells = new Array();
+					newCells = new Array();
+					count = 0;
+
+					correctNum = 0;
+					//max = 0;
+					click = false;
+
+					m = 0;
+					times = false;
+
+					
+					var Parent = document.getElementById("table");
+					Parent.removeChild(Parent.firstChild);
+					$('div').remove();
+					$('label').remove();
+					$('#terminate').remove();	
+					$('table').remove();
+					$('script').remove();
+					//document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+					dealCard(index);
+					//document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+
+
+			}, 100
+		);
+	
 		}
 		document.getElementById("score").innerHTML = "Score: " + score;
 
@@ -209,6 +245,42 @@ function cellClicked(id) {
 		score--;
 		document.getElementById("score").innerHTML = "Score: " + score;
 
+		if(score <= 0){	
+			score = 0;
+			alert("You lost!");
+			window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/summary.html";
+		}
+		setTimeout(
+			function(){
+				if(level != 1){
+					level--;
+				}
+				if(index != 0){
+					index--;
+				}
+				frontCell = 'white.png';
+				correctCell = "green.png";
+				wrongCell = "red.png";
+				cells = new Array();
+				newCells = new Array();
+				count = 0;
+
+				correctNum = 0;
+				click = false;
+				m = 0;
+				times = false;
+
+				
+				var Parent = document.getElementById("table");
+				Parent.removeChild(Parent.firstChild);
+				$('div').remove();
+				$('label').remove();
+				$('#terminate').remove();	
+				$('table').remove();
+
+				dealCard(index);
+		}, 100
+	);
 	}
 }
 
@@ -217,13 +289,13 @@ function cellClicked(id) {
 function terminate(){
 	var t = confirm("Are you sure want to terminate?");
 	if(t==true){
-		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/game/summary.html";
+		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/summary.html";
 	}
 }
 
 //restart game
 function restart(){
-		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/game/Flip.html";
+		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/index.html";
 		level = 1;
 		score = 0;
 }
@@ -231,14 +303,9 @@ function restart(){
 //go to leader board that show name + score
 function submit(){
 	name=document.getElementById("name").value;
-	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/game/leaderboard.html";
+	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/leaderboard.html";
 }
 
-function skip(){
-	//document.write("<h2>Brain Game</h2>");
-	//document.write("<div id=\"wrapper\">" + "<script>dealCard();</script></div>");
-	//	
-}
 
 
 //
@@ -264,16 +331,15 @@ function skip(){
 //        console.log("Database used");
 //    });
 //    
-//    con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, question VARCHAR(255), score VARCHAR(255))", function(err, result){
+//    con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
 //      if(err) throw err;
 //        console.log("Table questions created");
 //    });
 //    
 //    
-//    for(var i = 0; i < questions.length; i++){
-//        con.query("INSERT INTO name (name, score) VALUES ('" + questions[i].question + "','" + questions[i].answer + "')", function(err, result){
-//          if(err) throw err;
-//            console.log("Data inserted");
-//        })
-//    };
+//   
+//        //con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
+//        //  if(err) throw err;
+//        //    console.log("Data inserted");
+//        //});
 //});
