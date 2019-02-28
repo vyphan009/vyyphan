@@ -28,21 +28,19 @@ let questions = [`<p>1) What is "this" refer in this script?</p>
 <div>
 <p id="demo"></p>
 
-<script>
-var person1 = {
-  firstName:"Kim",
-  lastName: "Lee",
-  fullName: function() {
-    return this.firstName + " " + this.lastName;
-  }
-}
-var person2 = {
-  firstName:"John",
-  lastName: "Doe",
-}
-var x = person1.fullName.call(person2); 
-document.getElementById("demo").innerHTML = x; 
-</script>
+var person1 = {<br>
+  &nbsp; &nbsp;firstName:"Kim", <br>
+  &nbsp; &nbsp;lastName: "Lee",<br>
+  &nbsp; &nbsp;fullName: function() {<br>
+    &nbsp; &nbsp;&nbsp; &nbsp;return this.firstName + " " + this.lastName;<br>
+  &nbsp; &nbsp;}<br>
+}<br>
+var person2 = {<br>
+  &nbsp; &nbsp;firstName:"John",<br>
+  &nbsp; &nbsp;lastName: "Doe",<br>
+}<br>
+var x = person1.fullName.call(person2); <br>
+document.getElementById("demo").innerHTML = x; <br><br>
 
 </div>
 <input type="radio" name="asn" value="a"> a) John Doe<br>
@@ -50,23 +48,23 @@ document.getElementById("demo").innerHTML = x;
 <input type="radio" name="asn" value="c"> c) Kim Lee<br>
 <input type="radio" name="asn" value="d"> d) John<br>`,
 
-`<p>4) What would be the output of this script?</p>
+`<p>4) What would not be the output of this script?</p>
 
 <div>
-<p id="demo"></p>
+<p>
 
-<script>
-"use strict";
-document.getElementById("demo").innerHTML = myFunction();
-function myFunction() {
-  return this;
+"use strict";<br>
+&nbsp; &nbsp;document.getElementById("demo").innerHTML = myFunction();<br>
+function myFunction() {<br>
+  &nbsp; &nbsp;return this;<br>
 }
-
+</p>
 </div>
 </br>
 <input type="radio" name="asn" value="a"> a) undefined<br>
 <input type="radio" name="asn" value="b"> b) not defined<br>
-<input type="radio" name="asn" value="c"> c) error<br>`,
+<input type="radio" name="asn" value="c"> c) error<br>
+<input type="radio" name="asn" value="c"> c) not all of those<br>`,
 
 `<p>5) What would be the output of this script?</p>
 <div>
@@ -93,15 +91,14 @@ function myFunction() {
 `<p>6) What would be the output of this script?</p>
 
 <div>
-<p id="demo"></p>
+<p>
 
-<script>
-"use strict";
-document.getElementById("demo").innerHTML = myFunction();
-function myFunction() {
-  return this;
+"use strict";<br>
+&nbsp; &nbsp;document.getElementById("demo").innerHTML = myFunction();<br>
+function myFunction() {<br>
+  &nbsp; &nbsp;return this;<br>
 }
-
+</p>
 </div>
 </br>
 <input type="radio" name="asn" value="a"> a) undefined<br>
@@ -124,24 +121,28 @@ function myFunction() {
 <input type="radio" name="asn" value="d"> d) Resize<br>`,
 
 
+
+
 `<p>9) What would be the output of this script?</p>
 
 <div>
-<script>
-var i = 567;
-var rep = 0;
-do{
-    ++rep;
-    console.sole(rep);
-    i *= 2.1;
-} while(i < 567)
-
+<p>
+var i = 567; <br>
+var rep = 0;<br>
+do{ <br>
+    &nbsp; &nbsp;++rep;<br>
+    &nbsp; &nbsp;console.sole(rep);<br>
+    &nbsp; &nbsp;i *= 2.1;<br>
+} while(i < 567)<br>
+</p>
 </div>
 </br>
 <input type="radio" name="asn" value="a"> a) 1<br>
 <input type="radio" name="asn" value="b"> b) 0<br>
 <input type="radio" name="asn" value="c"> c) 3<br>
 <input type="radio" name="asn" value="d"> c) 2<br>`,
+
+
 
 
 `<p>10) Which one is a browser event?</p>
