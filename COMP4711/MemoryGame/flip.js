@@ -18,12 +18,6 @@ var level = 1;
 var angle = 0;
 var times = false;
 var rotateTimes = false;
-var nextRound = false;
-function skip(){
-	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
-	document.write("<link rel='stylesheet' type='text/css' href='flip.css'>");
-	nextRound = true;
-}
 
 
 function generateCell(index) 
@@ -85,19 +79,25 @@ function shuffle(array) {
     }
 	
 }
-
-function dealCard(index) {
-	//score + level
-	document.write("<label id=\"score\">" + "Score: " + score + "</label>");
-	document.write("<br><label id=\"level\">" + "Level: " + level + "</label>");
-	
-
-	this.index = index;
-	init(index);	
-	
-	document.write("<br><br><button id='terminate' onClick=\"terminate()\">TERMINATE</button>");
+module.exports = {
+	skip: function(){
+	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+	document.write("<link rel='stylesheet' type='text/css' href='flip.css'>");
+	}
 }
 
+module.exports = {
+	dealCard: function(index) {
+		//score + level
+		document.write("<label id=\"score\">" + "Score: " + score + "</label>");
+		document.write("<br><label id=\"level\">" + "Level: " + level + "</label>");
+		
+		this.index = index;
+		init(index);	
+		
+		document.write("<br><br><button id='terminate' onClick=\"terminate()\">TERMINATE</button>");
+	}
+}
 
 function init(index){
 	shuffle(generateCell(index));

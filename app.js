@@ -21,6 +21,9 @@ var text = "<!DOCTYPE>" +
 	"</html>";
 
 const http = require('http');
+const myModule = require('./COMP4711/MemoryGame/flip.js');
+//myModule.skip();
+myModule.dealCard(0);
 const port=process.env.PORT || 3000
 const server = http.createServer((req, res) => {
 res.statusCode = 200;
