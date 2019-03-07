@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BCIT - COMP 1950</title>
+    <!--#include file="./includes/common_head.html"-->
+</head>
+<body>
+  <div class="wrapper">
+    <!--#include file="./includes/header.html"-->
+    <main class="main">
+      <div class="content home">
+        <h2>Lecture Five: Responsive Design</h2>
+        <section class="highlight-box">
+          <h3>Agenda</h3>
+          <ul>
+            <li>Quiz #4</li>
+            <li>Print media</li>
+            <li>Media queries</li>
+            <li>Responsive design</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Styling For Printers</h3>
+          <p>When linking to your CSS, using <em>media="print"</em> will allow printer friendly styles to be applied. If you wanted the printer styles to inherit your default styles, use <em>media="all"</em> with the default stylesheets :</p>
+          <pre>
+<code>
+&lt;!-- This will apply both stylesheets to the printout --&gt;
+&lt;link rel="stylesheet" href="default_styles.css" media="all"&gt;
+&lt;link rel="stylesheet" href="print_styles.css" media="print" &gt;
+</code>
+</pre>
+          <p>To ensure your default styles wont also be applied to the printer (usually the best option), add <em>media="screen"</em> to the any stylesheets that are not to be used when printing:</p>
+          <pre>
+<code>
+/* styles for screens */
+@media screen{ 
+  header { color:red; }
+}
+/* styles for printers */
+@media print { 
+  header { display:none;  }
+}
+</code>
+</pre>
+          <p>The key to a stylesheet specifically for printing is a matter of planning more than anything.</p>
+          <p>You'll need a few things prepared before you can begin:</p>
+        </section>
+        <section>
+          <h3>Evaluation</h3>
+          <div class="grid grid-3">
+            <div class="row">
+              <div class="col title">Description</div>
+              <div class="col title">Due</div>
+              <div class="col title">Worth</div>
+            </div>
+            <div class="row">
+              <div class="col">Homework (9 in total)</div>
+              <div class="col">Daily</div>
+              <div class="col">35%</div>
+            </div>
+            <div class="row">
+              <div class="col">Quizzes (8 in total)</div>
+              <div class="col">Various</div>
+              <div class="col">20%</div>
+            </div>
+            <div class="row">
+              <div class="col">Group Project</div>
+              <div class="col">Session 12</div>
+              <div class="col">20%</div>
+            </div>
+            <div class="row">
+              <div class="col">Final Exam</div>
+              <div class="col">Session 12</div>
+              <div class="col">25%</div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Requirements</h3>
+          <p>Completion of COMP1850 or equivalent is required before beginning COMP1950.</p>
+          <p>Students taking COMP1950 must have solid foundational skills with both HTML and CSS, and some familiarity with Javascript.</p>
+          <p>Students are expected to understand the use of FTP and basic file management, be fluent with their operating system, and be proficient with a file compression utility (.zip).</p>
+          <p>If you have a problem with code you are working on and wish to email your instructor for assistance, be sure to provide the following:</p>
+          <ul>
+            <li>a .zip or .rar compressed file as an attachment. include in it all related files and folders (HTML, CSS, and Javascript, images, etc)</li>
+            <li>in the body of the email describe your question(s) as specifically as possible</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Course curriculum overview</h3>
+          <div class="grid grid-3">
+            <div class="row">
+              <div class="col">
+                <h4>Session 01: Tools & Standards</h4>
+                <ul>
+                  <li>development environments</li>
+                  <li>browser tools</li>
+                  <li>standards</li>
+                  <li>semantics</li>
+                  <li>site structure</li>
+                  <li>homework #1 assigned</li>
+                </ul>
+              </div>
+              <div class="col">
+                <h4>Session 02: markup languages</h4>
+                <ul>
+                  <li>quiz #1 - practical, open book</li>
+                  <li>HTML</li>
+                  <li>XHTML</li>
+                  <li>HTML5: new tags, semantics, content models, deprecations, compatibility</li>
+                  <li>CSS review</li>
+                  <li>homework #2 assigned</li>
+                </ul>
+              </div>
+              <div class="col">
+                <h4>session 03: CSS techniques</h4>
+                <ul>
+                  <li>quiz #2 - written, closed book</li>
+                  <li>alternate stylesheets</li>
+                  <li>importing</li>
+                  <li>advanced selectors</li>
+                  <li>the cascade, selector specificity</li>
+                  <li>homework #3 assigned (completed with a partner)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h4>session 04: CSS techniques, layouts</h4>
+                <ul>
+                  <li>quiz #3 - practical, open book</li>
+                  <li>sprites</li>
+                  <li>css resets</li>
+                  <li>positioning behaviors</li>
+                  <li>layout strategies</li>
+                  <li>homework #4 assigned</li>
+                </ul>
+              </div>
+              <div class="col">
+                <h4>session 04: CSS techniques, layouts</h4>
+                <ul>
+                  <li>quiz #3 - practical, open book</li>
+                  <li>sprites</li>
+                  <li>css resets</li>
+                  <li>positioning behaviors</li>
+                  <li>layout strategies</li>
+                  <li>homework #4 assigned</li>
+                </ul>
+              </div>
+              <div class="col">
+                <h4>session 04: CSS techniques, layouts</h4>
+                <ul>
+                  <li>quiz #3 - practical, open book</li>
+                  <li>sprites</li>
+                  <li>css resets</li>
+                  <li>positioning behaviors</li>
+                  <li>layout strategies</li>
+                  <li>homework #4 assigned</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Texts</h3>
+          <p>There is no official textbook for comp1950, but if you wish to supplement the online course notes and examples you may find the following optional texts useful:</p>
+          <div class="grid grid-3 book">
+            <div class="row">
+              <div class="col">
+                <img src="http://bcitcomp.ca/comp1950/courseinfo/web_dev_text.jpg" width="111" height="144" alt="book">
+                <div class="book-info">
+                  <h4>Web Development and Design Foundations with HTML5, 7/Edition</h4>
+                  <p>By Terry Felke-Morris<br>ISBN: 978-0-1335717-8-3<br><a href="#">Text Website</a></p>
+                </div>
+              </div>
+              <div class="col">
+                <img src="http://bcitcomp.ca/comp1950/courseinfo/web_dev_text.jpg" width="111" height="144" alt="book">
+                <div class="book-info">
+                  <h4>Web Development and Design Foundations with HTML5, 7/Edition</h4>
+                  <p>By Terry Felke-Morris<br>ISBN: 978-0-1335717-8-3<br><a href="#">Text Website</a></p>
+                </div>
+              </div>
+              <div class="col">
+                <img src="http://bcitcomp.ca/comp1950/courseinfo/web_dev_text.jpg" width="111" height="144" alt="book">
+                <div class="book-info">
+                  <h4>Web Development and Design Foundations with HTML5, 7/Edition</h4>
+                  <p>By Terry Felke-Morris<br>ISBN: 978-0-1335717-8-3<br><a href="#">Text Website</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <!--#include file="./includes/footer.html"-->
+</body>
+</html>

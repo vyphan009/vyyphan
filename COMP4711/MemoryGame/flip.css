@@ -1,20 +1,17 @@
+/* 
+body{
+    background-color: #bf8033;
+} */
 #wrapper {
-    width: 800px;
+    width: 300px;
     height: 500px;
     margin:50 auto;
-    /* max-height: 100%; */
-    /* min-height: 100%; */
-    max-width: 40%;
-    min-width: 40%;
-    /* position: relative;
-    z-index: 1; */
+    min-height: 70%;    
+    min-width: 70%; 
     overflow-x: hidden;
-    /* padding-top: 12%;
-    padding-right: 10%; */
-    /* font-size: 30px;
-    font-family: MyFont; */
-    /* background-color: #bf8033; */
-    /* border: 2px solid black; */
+    padding: 30px;
+    background-color: #bf8033;
+    border: 2px solid black;
 }
 button{
     height: 30px;
@@ -27,16 +24,8 @@ button{
 }
 label{
     position: relative;
-    left: 10px;
-}
-span {
-    font-size: 80px;
-    margin-left: 12%;
-    padding:10px;
-    background-color: #000000;
-    color: #ffffff;
-    cursor:pointer;
-    -webkit-user-select:none;
+    left: 200px;
+    
 }
 @keyframes rotation {
 		from {
@@ -64,6 +53,7 @@ h1{
     left: 35%;
     font-size: 50px;
 }
+
 #video{
     width: 800px;
     height: 400px;
@@ -96,4 +86,8 @@ h1{
 #restart{
     position: relative;
     left: 20px;
+}
+
+#summary{
+    background-color: white;
 }

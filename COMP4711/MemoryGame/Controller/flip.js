@@ -1,6 +1,6 @@
-var frontCell = 'white.png';
-var correctCell = "green.png";
-var wrongCell = "red.png";
+var frontCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/white.png";
+var correctCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png";
+var wrongCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/red.png";
 var cells = new Array();
 var newCells = new Array();
 var count = 0;
@@ -10,7 +10,6 @@ var max;
 var click = false;
 
 var score = 0;
-var name;
 var tmpScore = 0;
 var size = [9, 16, 25, 36, 49];
 var m;
@@ -21,6 +20,14 @@ var rotateTimes = false;
 var submitName = false;
 
 
+function skip(){
+	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+	document.write("<link rel='stylesheet' type='text/css' href='/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/flip.css'>");
+
+}
+	
+
+
 function generateCell(index) 
 {
 	
@@ -29,36 +36,36 @@ function generateCell(index)
 	{
 		
 		if(i<=max/3 && Math.sqrt(max) == 3){
-			correctCells = {type: 'correct', img: 'green.png'};
+			correctCells = {type: 'correct', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png'};
 			cells.push(correctCells);
 			correctNum = 3;
 			m = 3;
 				
 		}else if(i<=max/4 && Math.sqrt(max) == 4){
-				correctCells = {type: 'correct', img: 'green.png'};
+				correctCells = {type: 'correct', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png'};
 				cells.push(correctCells);
 				correctNum = 4;
 				m= 4;
 				
 		} else if(i<=max/5 && Math.sqrt(max) == 5){
-				correctCells = {type: 'correct', img: 'green.png'};
+				correctCells = {type: 'correct', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png'};
 				cells.push(correctCells);
 				correctNum = 5;
 				m= 5;
 				
 		}else if(i<=max/6 && Math.sqrt(max) == 6){
-				correctCells = {type: 'correct', img: 'green.png'};
+				correctCells = {type: 'correct', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png'};
 				cells.push(correctCells);
 				correctNum = 6;
 				m=6;
 				
 		}else if(i<=max/7 && Math.sqrt(max) == 7){
-				correctCells = {type: 'correct', img: 'green.png'};
+				correctCells = {type: 'correct', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png'};
 				cells.push(correctCells);
 				correctNum = 7;
 				m=7;
 		}else {
-			wrongCells = {type: 'wrong', img: 'red.png'};
+			wrongCells = {type: 'wrong', img: '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/red.png'};
 			cells.push(wrongCells);
 		}
 	}
@@ -81,15 +88,14 @@ function shuffle(array) {
 	
 }
 
-	function skip(){
-	document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
-	document.write("<link rel='stylesheet' type='text/css' href='flip.css'>");
-	}
+
 
 
 
 	function dealCard(index) {
 		//score + level
+		//document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+
 		document.write("<label id=\"score\">" + "Score: " + score + "</label>");
 		document.write("<br><label id=\"level\">" + "Level: " + level + "</label>");
 		
@@ -97,6 +103,8 @@ function shuffle(array) {
 		init(index);	
 		
 		document.write("<br><br><button id='terminate' onClick=\"terminate()\">TERMINATE</button>");
+
+
 	}
 
 
@@ -209,9 +217,9 @@ function cellClicked(id) {
 					tmpScore+= 10;
 					index++;
 					//console.log(index);
-					frontCell = 'white.png';
-					correctCell = "green.png";
-					wrongCell = "red.png";
+					frontCell = '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/white.png';
+					correctCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png";
+					wrongCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/red.png";
 					cells = new Array();
 					newCells = new Array();
 					count = 0;
@@ -231,12 +239,14 @@ function cellClicked(id) {
 					$('#terminate').remove();	
 					$('table').remove();
 					$('script').remove();
-					//document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
-					dealCard(index);
-					//document.write("<div id='wrapper'><script>dealCard(0);</script></div>");
+					$('h1').remove();
+
+					document.write("<h1>BRAIN GAME</h1><div id='wrapper'><script>dealCard(index);</script></div>");
+
+					
 
 
-			}, 100
+			}, 1000
 		);
 	
 		}
@@ -249,7 +259,7 @@ function cellClicked(id) {
 		if(score <= 0){	
 			score = 0;
 			alert("You lost!");
-			window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/summary.html";
+			window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/View/summary.html";
 		}
 		setTimeout(
 			function(){
@@ -259,9 +269,9 @@ function cellClicked(id) {
 				if(index != 0){
 					index--;
 				}
-				frontCell = 'white.png';
-				correctCell = "green.png";
-				wrongCell = "red.png";
+				frontCell = '/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/white.png';
+				correctCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/green.png";
+				wrongCell = "/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/Controller/red.png";
 				cells = new Array();
 				newCells = new Array();
 				count = 0;
@@ -278,9 +288,10 @@ function cellClicked(id) {
 				$('label').remove();
 				$('#terminate').remove();	
 				$('table').remove();
+				$('h1').remove();
+				document.write("<h1>BRAIN GAME</h1><div id='wrapper'><script>dealCard(index);</script></div>");
 
-				dealCard(index);
-		}, 100
+		}, 500
 	);
 	}
 }
@@ -290,60 +301,28 @@ function cellClicked(id) {
 function terminate(){
 	var t = confirm("Are you sure want to terminate?");
 	if(t==true){
-		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/summary.html";
+		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/View/summary.html";
 	}
 }
 
 //restart game
 function restart(){
-		window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/index.html";
+		//window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/View/index.html";
 		level = 1;
 		score = 0;
+		document.write("<h1>BRAIN GAME</h1><div id='wrapper'><script>dealCard(0);</script></div>");
+		document.write("<link rel='stylesheet' type='text/css' href='/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/flip.css'>");
+
 }
 
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
- host: "localhost",
- port: "8080",
- user: "root",
- password: "",
-});
-con.connect(function(err){
-	if(err) throw err;
-	console.log("Connected");
-	con.query ("CREATE DATABASE IF NOT EXISTS leaderboard", function(err, result){
-		if(err) throw err;
-		console.log("Database created");
-	});
-	
-	con.query("use leaderboard", function(err, result){
-		if(err) throw err;
-		console.log("Database used");
-	});
-	
-	con.query("CREATE TABLE IF NOT EXISTS name (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), score INT)", function(err, result){
-	  if(err) throw err;
-		console.log("Table questions created");
-	});
-		
- });
 //go to leader board that show name + score
 function submit(){
-	submitName = true;
-	name=document.getElementById("name").value;
-	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/leaderboard.html";
-	con.query("INSERT INTO name (name, score) VALUES ('" + name + "','" + score + "')", function(err, result){
-		if(err) throw err;
-		  console.log("Data inserted");
-	   });
-	
-
+	let name=document.getElementById("name").value;
+	window.location.href="/Users/phanvy/Documents/term4/web/vyyphan/COMP4711/MemoryGame/View/leaderboard.html";
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "http://localhost::8888/?name=" + name, true);
+	xhttp.send();
 }
-
-
-
-
 
 
 

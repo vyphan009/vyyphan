@@ -58,7 +58,7 @@ function addData(){
       
 
 }
-function saveData{
+function saveData(){
    if(typeof(Storage) !== "undefined"){
            let r = String(counter++);
            localStorage.setItem(r, JSON.stringify(store));
