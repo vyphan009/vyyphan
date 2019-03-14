@@ -1,18 +1,8 @@
 
 const num = prompt("How many questions do you want to see? ");
-let questions = [`<p>1) What would be the output of this script?</p>
-<div>
-<div><span style="color: #ff0000;">let</span> mul = 2;</div>
-<div><span style="color: #3366ff;">for</span> (<span style="color: #ff0000;">let</span> i = 3; i <5; ++i) { </div>
-<div>&nbsp; &nbsp; mul = mul * i;</div>
-<div>}</div>
-<div>&nbsp;</div>
-<div>
-   <div>
-       <div><span style="color: #3366ff">console</span>.log(mul);</div>
-   </div>
-</div>    
-</div>
+let questions = [
+"<p>1) What would be the output of this script?</p><div><div>var a = 5;</div><div>var b = 10;</div><div>var c = "5";</div><div>console.log(a+b+c)</div>"
+
 <br>
 <input type="radio" name="color" value="a" id="1a"> a) 22 <br>
 <input type="radio" name="color" value="b"> b) 33 <br>
