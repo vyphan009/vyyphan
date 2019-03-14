@@ -9,6 +9,7 @@ function addQuestion() {
 
     output.push(
         '<div id="' + counter +'">'
+        +"<form action='updata.js' method='post'> "
         //question 
         +'<div id="question' + counter + '" contenteditable="true"> Enter a question here</div></br>'
         //answer
@@ -24,6 +25,7 @@ function addQuestion() {
 
         //rm btn
         + '<button type="button" onclick="remove(' + counter +  ')" id="btn' + counter + '"> Remove</button><br><br>'
+        + '</form>'
         + '</div>');
 
     id[index] = counter;
