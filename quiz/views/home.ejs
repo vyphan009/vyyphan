@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title%></title>
+  <style>
+    pre {
+      padding: 0;
+    }
+    ol {
+      margin: 0;
+    } 
+    li > ol {
+      padding: 0 5px;
+      list-style: none;
+    }
+    li {
+      padding: 2px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div> 
+    <% if (questions.length > 0) {%>
+    <ol>
+      <% questions.forEach((item, index) => { %>
+      <li>
+        <pre><%- item.content %></pre>
+        <% if (item.choices.length > 0 ) {%>
+          <ol>
+          <%Object.keys(item.choices).forEach(function(prop) {%>
+            <li><input type="radio" name="question-<%- index %>"> <%- item.choices[prop].answer %></li>
+          <% }); %>
+          </ol>
+        <% } %>        
+      </li>
+      <% }); %>
+    </ol>
+    <% } else { %>
+    <p class="text-center">No questions found.</p>
+    <% } %>
+  </div>
+</body>
+
+</html>
