@@ -1,7 +1,12 @@
 
 const num = prompt("How many questions do you want to see? ");
 let questions = [
-"<p>1) What would be the output of this script?</p><div><div>var a = 5;</div><div>var b = 10;</div><div>var c = "5";</div><div>console.log(a+b+c)</div>"
+`<p>1) What would be the output of this script?</p>
+<div>
+<div>var a = 5;</div>
+<div>var b = 10;</div>
+<div>var c = "5";</div>
+<div>console.log()</div>
 
 <br>
 <input type="radio" name="color" value="a" id="1a"> a) 22 <br>
